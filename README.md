@@ -283,6 +283,26 @@ sequenceDiagram
   </a>
 </p>
 
+**Layer 1: Shared Core & C-ABI Ingress**
+- Rust 2021 Deterministic Engine (`core/src/tier1/`) & Modern C++17 Core (`core/cpp/`)
+- Zero-Copy C-ABI Bridge (`libpocket_sparrow.so` / `libpocket_sparrow.a`)
+
+**Layer 2: Multi-Platform Ingress Clients**
+- Desktop Daemon & React HUD (Tauri 2.0 Loopback Bridge `127.0.0.1:41789`)
+- Android Native Client (Kotlin, Jetpack Compose, CameraX, Zero-Internet Manifest)
+- Chromium MV3 Browser Hook (Pre-navigation URL Interceptor)
+
+**Layer 3: Neural & Quantized Engine Assets**
+- MobileBERT INT8 Quantized Weights (`pocket_sparrow_int8.onnx` & `pocket_sparrow_int8.tflite`)
+- Domain-Specific WordPiece Vocabulary (1,139 In-Memory Subwords)
+
+**Layer 4: Verification, Audits & Release Distribution**
+- 12,000-Cycle Automated SLA Benchmark Harness (`0.016 ms` P99)
+- Peak RSS Memory Watchdog (`14.88 MB` Peak RSS) & Zero-WAN `/proc` Guard
+- Cross-Platform Binaries (APK, DEB, EXE) & Multi-Platform Web Portal (`website/`)
+
+<br/>
+
 ```mermaid
 %%{init: {
   'theme': 'dark',
@@ -357,103 +377,6 @@ flowchart TB
     classDef amber fill:#2E1A04,stroke:#FBBF24,stroke-width:2px,color:#FBBF24;
     classDef violet fill:#1C0B2B,stroke:#A855F7,stroke-width:2px,color:#A855F7;
 ```
-
-<br/>
-
-### 🌲 Branched Menu Architecture & Monorepo Map
-
-<p align="center">
-  <img src="assets/branched_project_structure.svg" alt="Pocket Sparrow Branched Menu Architecture" width="100%" />
-</p>
-
-<details open>
-<summary><b>🌲 Branched Navigation Hierarchy (Click to Expand / Collapse)</b></summary>
-
-<br/>
-
-```text
-│ Getting started
-├── 📥 Installation & Build Setup     (cargo / npm / gradle)
-├── 🚀 Quick start                     (3-Min Airplane Demo · ACTIVE)
-├── ⚙️ Configuration & Sockets         (/proc/net/dev Airgap)
-└── 🎨 Enterprise Theming              (Dark/Light Consistent)
-
-│ Shared Detection Core · core/
-├── 🦀 tier1/ · Entropy & Homoglyphs   (16 µs Latency SLA)
-├── 🧠 tier2/ · ONNX & WordPiece Vocab (0.22 ms P99 Latency)
-├── 🔍 xai/ · Explainable AI Threat DNA(Forensic attribution)
-└── ⚡ cpp/ & include/ · Zero-Copy FFI (libpocket_sparrow.so)
-
-│ Android Native Client · android/
-├── 📱 LiveShieldManager               (Notification Interceptor)
-├── ✉️ EmailPhishingAuditor            (Offline Brand & Webmail)
-├── 📷 QrScannerScreen                 (CameraX Quishing Radar)
-└── 🚫 Zero-Internet Manifest          (INTERNET permission omitted)
-
-│ Desktop HUD & Daemon · desktop/
-├── ⚛️ src/components/                 (React 18 + Tailwind HUD)
-├── 🦀 src-tauri/                      (127.0.0.1:41789 Loopback Daemon)
-├── 🔒 process_monitor.rs              (Linux /proc Reverse Shell Sentry)
-└── 🗄️ audit_vault.rs                  (SQLCipher AES-256 Ledger)
-
-│ Quantized ML Pipeline · ml/
-├── 📦 models/pocket_sparrow_int8.onnx (32.00 MB CPU Optimized)
-├── 📦 models/pocket_sparrow_int8.tflite (33.00 MB NNAPI/GPU)
-└── 🔤 models/vocab.txt                (1,139 WordPiece Tokens)
-
-│ Showcase & Releases · website/
-├── 🌐 website/index.html              (Multi-Platform Download Hub)
-├── 📥 Release Binaries                (APK, DEB, and EXE Installers)
-└── 🌲 BranchedMenu.tsx                (Hugeicons Navigation Tree)
-```
-
-</details>
-
-<br/>
-
-#### 💻 React Component Usage (`<BranchedMenu />`)
-
-The branched navigation tree above is also implemented as a reusable component powered by `@hugeicons/core-free-icons` and `@hugeicons/react` in [`desktop/src/components/BranchedMenu.tsx`](file:///home/gjgameryt-0890/PocketSparrow/desktop/src/components/BranchedMenu.tsx):
-
-```bash
-npm install @hugeicons/react @hugeicons/core-free-icons
-```
-
-```tsx
-import { Download04Icon, Rocket01Icon, Settings02Icon } from '@hugeicons/core-free-icons';
-import BranchedMenu from './BranchedMenu';
-
-<BranchedMenu
-  items={[
-    {
-      label: 'Getting started',
-      children: [
-        { value: 'install', label: 'Installation', icon: Download04Icon },
-        { value: 'quick', label: 'Quick start', icon: Rocket01Icon },
-        { value: 'config', label: 'Configuration', icon: Settings02Icon }
-      ]
-    },
-    { label: 'Components', children: [{ value: 'buttons', label: 'Buttons' }, { value: 'overlays', label: 'Overlays' }] }
-  ]}
-  defaultOpen={[0]}
-  defaultActive="quick"
-  onSelect={(value, item) => navigate(value)}
-  color="#f5f5f5"
-  accentColor="#f5f5f5"
-  lineColor="#3f3f46"
-  width={240}
-  rowHeight={36}
-  indent={40}
-  trunk={14}
-  radius={10}
-  lineWidth={1.5}
-  fontSize={14}
-  drawDuration={400}
-  foldDuration={300}
-/>
-```
-
-<br/>
 
 ### 📂 Interactive VS Code Monorepo Explorer
 
@@ -652,6 +575,7 @@ import BranchedMenu from './BranchedMenu';
                     <li>⚛️ <code>QuickActionsGrid.tsx</code> &nbsp;&bull;&nbsp; <i>Functional pre-configured payload triggers (URL, SMS, QR, Processes)</i></li>
                     <li>⚛️ <code>ThreatAlertCard.tsx</code> &nbsp;&bull;&nbsp; <i>Animated threat alert notification cards</i></li>
                     <li>⚛️ <code>Sidebar.tsx</code> &nbsp;&bull;&nbsp; <i>Enterprise HUD sidebar navigation drawer</i></li>
+                    <li>🌲 <code>BranchedMenu.tsx</code> &nbsp;&bull;&nbsp; <i>Hierarchical branched tree navigation component</i></li>
                   </ul>
                 </details>
               </li>
@@ -813,6 +737,18 @@ import BranchedMenu from './BranchedMenu';
     </details>
   </li>
 
+  <!-- MODULE 8: SHOWCASE & DOWNLOAD HUB -->
+  <li>
+    <details>
+      <summary>📁 <b>website/</b> &nbsp; <img src="https://img.shields.io/badge/Web%20Hub-Downloads-00F0FF?style=flat-square" alt="website"/> &nbsp; <sub>Multi-platform release download center &amp; live showcase</sub></summary>
+      <ul>
+        <li>🌐 <code>index.html</code> &nbsp;&bull;&nbsp; <i>Multi-platform download hub for Windows (.exe), Linux (.deb), and Android (.apk)</i></li>
+        <li>📁 <b>downloads/</b> &nbsp;&bull;&nbsp; <i>Release binary distributions and checksum files</i></li>
+        <li>📁 <b>assets/</b> &nbsp;&bull;&nbsp; <i>Screenshots, app icons &amp; vector UI assets</i></li>
+      </ul>
+    </details>
+  </li>
+
   <!-- ROOT REPO FILES -->
   <li>🦀 <code>Cargo.toml</code> &nbsp;&bull;&nbsp; <i>Cargo workspace root manifest</i></li>
   <li>🦀 <code>Cargo.lock</code> &nbsp;&bull;&nbsp; <i>Deterministic dependency lockfile</i></li>
@@ -834,6 +770,7 @@ import BranchedMenu from './BranchedMenu';
 | **📱 `android/`** | Kotlin, NDK C++, Jetpack Compose, Room | Bundled INT8 Model | `NotificationScanService`, CameraX QR scanner, APK auditor, zero-internet manifest |
 | **📊 `benchmarks/`** | Rust, Python, Linux `/proc/net` | Automated Harness | 12,000-cycle latency profiler, peak RSS validator, socket airgap assertion |
 | **🎬 `demo/`** | Bash, JSON, SVG, Dummy APK | `&lt; 5MB` Fixture Kit | 3-minute Airplane Mode Live Demo runner, Test Cases A, B, and C |
+| **🌐 `website/`** | HTML5, Tailwind CSS, Lucide | `&lt; 1MB` Static Hub | Multi-platform download portal for APK, DEB, EXE &amp; GitHub release links |
 
 ---
 
