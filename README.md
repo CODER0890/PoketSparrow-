@@ -117,6 +117,33 @@ Engineered by **Team Silent Flight (Team ID: HJAZ)** for **Code Carnival 3.0** o
   </a>
 </p>
 
+### ⚡ Architecture & Inspection Pipeline
+
+**Layer 1: Ingress Interception Vectors**
+- Desktop Loopback Bridge (127.0.0.1:41789)
+- Android Notifications & SMS Hook
+- CameraX Offline QR Stream Analyzer
+- System Clipboard Sentinel
+
+**Layer 2: Zero-Copy Ingress Bus**
+- Shared Memory Bus (Cross-platform IPC)
+
+**Layer 3: Two-Tier Detection Engine**
+- **Tier 1**: High-Speed Local Heuristics (&lt; 5ms)
+  - Shannon Entropy Analysis
+  - Regex Pattern Matcher (Homographs, Subdomains)
+  - High-Risk TLD Lookup
+- **Tier 2**: Quantized Transformer Inference (&lt; 40ms)
+  - MobileBERT / DistilBERT (INT8)
+  - TFLite (Android) / ONNX Runtime (Desktop)
+  - *Triggered only if Tier 1 flags content as ambiguous.*
+
+**Layer 4: Verdict & Explainability**
+- Threat DNA (Attention Heatmap)
+- Final Verdict (Safe / Suspicious / Phishing)
+
+<br/>
+
 ```mermaid
 %%{init: {
   'theme': 'dark',
@@ -194,6 +221,24 @@ flowchart TD
 ```
 
 ### ⏱️ Sub-50ms Execution Latency Breakdown
+
+**Layer 1: Host Ingress & Clock Start**
+- Intercepted Ingress Payload (URL / SMS / QR / Process)
+- High-Resolution Microsecond Timer Activation
+
+**Layer 2: Fast-Path Heuristic Evaluation (Target < 5ms)**
+- Shannon Entropy Calculation + Homoglyph Unmasking + Static Trie
+- Deterministic Early Exit (Measured: 0.016 ms / 16 µs)
+
+**Layer 3: Conditional Transformer Inference (Target < 40ms)**
+- In-Memory WordPiece Tokenization (1,139 Vocabulary)
+- INT8 ONNX / TFLite NNAPI Deep Scan (Measured: 0.220 ms P99)
+
+**Layer 4: Real-Time Verdict & Forensic Commit**
+- Plain-English Forensic Threat DNA Delivery
+- SQLCipher Encrypted Vault Commit (Total P99: 0.047 ms &lt; 50ms SLA)
+
+<br/>
 
 ```mermaid
 sequenceDiagram
@@ -864,6 +909,26 @@ Pocket Sparrow includes six specialized, 100% on-device production security modu
 ### 🔬 Module 1 — Threat DNA Visualizer (Explainable AI Attention Heatmap)
 The **Threat DNA Visualizer** breaks down inspected payloads into constituent tokens, scoring each token's contribution to the final risk classification. It blends Tier 1 deterministic signals (homoglyph deception, TLD risk, Shannon entropy) with Tier 2 MobileBERT cross-attention weights, rendering an interactive cool-to-rose heatmap with token-level tooltips and a smooth 400ms reveal animation.
 
+**Layer 1: Raw Ingress Vectors**
+- Intercepted Payload Extraction (URL / SMS / QR / Email)
+- Ephemeral Sanitization & In-Memory Token Buffer
+
+**Layer 2: Token-Level Decomposition**
+- WordPiece Subword Tokenizer (Whitespace & In-Memory Vocab)
+- Tier 1 Heuristic Attribution (Homoglyph, TLD risk, Shannon entropy)
+- Tier 2 Attention Weight Extraction (MobileBERT Cross-Attention Softmax)
+
+**Layer 3: Multi-Signal Synthesis Engine**
+- Normalized Confidence Blending (Range: 0.0 – 1.0)
+- Token Weight Synthesizer & Feature Attribution Mapping
+
+**Layer 4: Real-Time XAI Presentation**
+- Cool-to-Rose Heatmap Chips (Cyan Safe ➔ Rose Threat)
+- Interactive Hover Tooltips with Factor Breakdown
+- 400ms Staggered Reveal Animation & Threat DNA Token Export
+
+<br/>
+
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#09090B', 'mainBkg': '#0D1117', 'primaryColor': '#00F0FF', 'lineColor': '#00F0FF'}}}%%
 flowchart LR
@@ -904,6 +969,25 @@ flowchart LR
 
 ### 🌐 Module 2 — Live Network Interceptor with Interactive Big Graph
 The **Live Network Interceptor** provides real-time verification of Pocket Sparrow's zero-WAN airgap invariant. Featuring an interactive dual SVG Bezier graph, the dashboard graphs local IPC loopback (`127.0.0.1`) communication while proving continuous **0 B WAN egress**. If any outbound WAN packet attempt occurs, a full-width red alert banner triggers instantly.
+
+**Layer 1: OS Kernel & Interface Ingress**
+- Linux `/proc/net/dev` Interface Metrics Polling
+- Local Loopback Socket Ledger (AF_INET / 127.0.0.1)
+
+**Layer 2: Zero-Egress Native Guard Bus**
+- 1s Native Polling Daemon (`get_network_metrics`)
+- Zero-Egress Atomic Counters (`outbound_wan_bytes: 0`)
+
+**Layer 3: Egress Isolation & Verifier Engine**
+- Real-Time WAN Egress Boundary Assertion (`WAN TX == 0 B`)
+- Instant Egress Violation Interrupt Trigger
+
+**Layer 4: Interactive Telemetry HUD**
+- High-Resolution Dual Bezier SVG Graph (Cyan Local IPC vs Emerald 0 B WAN)
+- Full-Width Red Alert Trigger Banner
+- Hardware Interface Ledger Table (lo, eth0, wlan0 state)
+
+<br/>
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#09090B', 'mainBkg': '#0D1117', 'primaryColor': '#00F0FF', 'lineColor': '#00F0FF'}}}%%
@@ -947,6 +1031,27 @@ flowchart TD
 ### 🔐 Module 3 — Encrypted Forensic Export Architecture
 Security operations and incident responders can package cryptographic forensic audits completely offline. Using zero external dependencies, the engine generates an encrypted ZIP archive via **PBKDF2-HMAC-SHA256 (100,000 rounds)** and **AES-256-GCM** encryption. The bundle packages `metadata.json`, `threat-dna.json`, `network-log.txt`, and `sla.json`, outputting an immutable SHA-256 verification digest.
 
+**Layer 1: Forensic Artifact Ingestion**
+- Session & Environment State (`metadata.json`)
+- Threat DNA Tokens, Weights & Attention Heatmaps (`threat-dna.json`)
+- Zero-WAN Socket Audit Record (`network-log.txt`)
+- Sub-50ms SLA Latency & Memory Metrics (`sla.json`)
+
+**Layer 2: Key Derivation & Cryptographic Bus**
+- User Password Input with Live Shannon Entropy Meter
+- 16-byte Cryptographic Salt generated via OS CSPRNG
+- PBKDF2-HMAC-SHA256 (100,000 key derivation iterations)
+
+**Layer 3: Authenticated Envelope Encryption**
+- AES-256-GCM Authenticated Encryption (12-byte IV + 16-byte Auth Tag)
+- Zero-Dependency In-Memory ZIP Container Generation
+
+**Layer 4: Immutable Air-Gap Output**
+- Sealed Cryptographic Container (`pocket-sparrow-forensics-*.zip`)
+- SHA-256 Airgap Checksum Digest for Ledger Verification
+
+<br/>
+
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#09090B', 'mainBkg': '#0D1117', 'primaryColor': '#00F0FF', 'lineColor': '#00F0FF'}}}%%
 flowchart TD
@@ -989,6 +1094,26 @@ flowchart TD
 ### 🧩 Module 4 — Browser Extension Loopback Bridge (Chromium / Edge MV3)
 The **Pocket Sparrow Browser Extension** hooks into browser navigation via `webNavigation.onBeforeNavigate`. Before outbound TCP SYN handshakes leave the browser, the extension queries the local Tauri loopback daemon at `http://127.0.0.1:41789/scan` (<2ms loopback roundtrip). If malicious, navigation is halted and redirected to an on-device warning card displaying the Threat DNA heatmap and XAI diagnosis.
 
+**Layer 1: Pre-Flight Ingress Interception**
+- Chromium / Edge MV3 Service Worker Ingress Hook
+- Pre-Flight Interception via `webNavigation.onBeforeNavigate` (Prior to TCP SYN Handshake)
+
+**Layer 2: Local IPC Loopback Bus**
+- POST `http://127.0.0.1:41789/scan` (&lt; 2ms Loopback Roundtrip)
+- Zero-Cloud Local Socket Bridge to Tauri Rust Daemon
+
+**Layer 3: Two-Tier Detection Engine**
+- Tier 1: Deterministic Rules & High-Risk TLD Checks (&lt; 5ms)
+- Tier 2: INT8 MobileBERT NLP Evaluation if Ambiguous (&lt; 40ms)
+- Local Allowlist & Domain Whitelist Fast-Path
+
+**Layer 4: Verdict & Enforcement Action**
+- Allow Navigation Throughput (Safe Verdict)
+- Pre-Flight Navigation Halt & Internal Redirection to `blocked.html` (Malicious Verdict)
+- Interactive Full-Page Warning Card with Threat DNA Heatmap & XAI Attribution
+
+<br/>
+
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#09090B', 'mainBkg': '#0D1117', 'primaryColor': '#00F0FF', 'lineColor': '#00F0FF'}}}%%
 sequenceDiagram
@@ -1020,6 +1145,28 @@ sequenceDiagram
 
 ### ⚡ Module 5 — Hardware Accelerator Telemetry
 The **Hardware Accelerator Dashboard** gives visibility into silicon acceleration providers (Qualcomm Hexagon NPU, MediaTek APU, Android NNAPI, Vulkan/OpenCL GPU, and x86/ARM CPU fallback). It tracks live utilization gauges, thermal envelope states, fallback occurrences, and a layer-by-layer latency breakdown of MobileBERT INT8 inference to guarantee the <50ms SLA.
+
+**Layer 1: Silicon & Execution Ingress**
+- NPU Delegate (Qualcomm Hexagon / MediaTek APU / Apple Neural Engine)
+- GPU Acceleration (Vulkan / OpenCL / Android NNAPI)
+- CPU Fallback Providers (x86_64 AVX2 / ARM Neon INT8)
+
+**Layer 2: Kernel Telemetry & Thermal Bus**
+- OS Thermal Sensor Metrics (`/sys/class/thermal`)
+- Core Utilization Sampling (CPU, GPU, NPU load percentages)
+- Silicon Fallback Event Watchdog & Logging
+
+**Layer 3: Layer-by-Layer Latency Profiler**
+- Tokenizer: 0.42 ms | Embedding: 1.18 ms
+- MobileBERT Self-Attention: 11.84 ms | Feed-Forward: 3.82 ms
+- Classification Head: 0.92 ms (&lt; 50ms Total In-Memory Gate)
+
+**Layer 4: Silicon HUD Dashboard**
+- Radial & Linear Hardware Utilization Meters
+- Stacked Layer Latency Breakdown Bars
+- Thermal Envelope Status Badge (&lt; 42°C Nominal)
+
+<br/>
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#09090B', 'mainBkg': '#0D1117', 'primaryColor': '#00F0FF', 'lineColor': '#00F0FF'}}}%%
@@ -1060,6 +1207,26 @@ flowchart TD
 
 ### 📧 Module 6 — On-Device Email Background Scanner
 The **Email Shield** monitors configured IMAP email accounts (Gmail, Outlook, Yahoo, Custom IMAP) via an on-device background service. Emails are fetched over encrypted IMAP SSL, stripped of tracking pixels, parsed for links and coercive language, and evaluated against the Tier 1/Tier 2 detection pipeline. Scanned emails appear in a live real-time ledger with Threat DNA inspection and threat-only filtering.
+
+**Layer 1: Multi-Account Ingress Vectors**
+- Protected Inboxes (Gmail, Outlook, Yahoo, Custom Corporate IMAP)
+- Encrypted In-Memory IMAP SSL Protocol Client
+
+**Layer 2: Feature Extraction & Tracking Neutralization**
+- 1x1 Transparent Tracking Pixel Neutralizer (Offline Removal)
+- Embedded Hyperlink Anchor & Mismatch Extractor
+- NLP Body Coercion & Urgency Word Scanner
+
+**Layer 3: Two-Tier Threat Engine**
+- Tier 1 Heuristics: 22+ Brand Dictionary, Free Webmail Spoofing, Dangerous Extensions (.exe, .pdf.exe)
+- Tier 2 MobileBERT INT8 Semantic Urgency Classification
+
+**Layer 4: Real-Time Verdict & Feed Display**
+- Live Scanned Email Ledger with Threat-Only Toggle
+- Inline Threat DNA Token Attention Inspector
+- Real-Time OS Push Notification on Malicious Phish
+
+<br/>
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#09090B', 'mainBkg': '#0D1117', 'primaryColor': '#00F0FF', 'lineColor': '#00F0FF'}}}%%
@@ -1127,6 +1294,28 @@ The **Unified Communication Shield** delivers automated on-device email defense,
 | **Cross-Platform Parity** | Mobile app only; no native local desktop threat interceptor | **Android & Desktop Parity** (Unified Compose & React + Tauri) |
 
 #### 🔄 Communication Shield End-to-End Pipeline Architecture
+
+**Layer 1: Inbound Communication Ingress**
+- Telephony Telecom Hook (`CallScreeningService`)
+- Incoming SMS / RCS (`Telephony.Sms.Intents.SMS_RECEIVED_ACTION`)
+- Encrypted Email Stream (IMAP SSL / Header Parser)
+
+**Layer 2: Zero-Cloud Identity & Cryptographic Bus**
+- Local Contact Whitelist Match (`ContactsContract` in-memory lookup)
+- STIR/SHAKEN Carrier Cryptographic Attestation Status Verification
+- Encrypted SQLCipher Spam Database Match (Salted SHA-256 Hashes)
+
+**Layer 3: Two-Tier Threat Screening Engine**
+- Tier 1: Sub-millisecond Heuristic Engine (Toll-Free Spoof, Homoglyphs, High-Risk TLDs)
+- Tier 2: Quantized MobileBERT INT8 NLP (Coercive Financial & Smishing Classifier)
+- Email Header & Domain Integrity Check (Display-Name Spoofing & Pixel Stripping)
+
+**Layer 4: Real-Time Enforcement & XAI Overlays**
+- Native Call Screening Action (`respondToCall`: Allow, Silence, or Reject)
+- Silent SMS Quarantine Folder Routing (`Pocket Sparrow Spam`)
+- System Alert Window Overlay with Threat DNA Attention Heatmap
+
+<br/>
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#09090B', 'mainBkg': '#0D1117', 'primaryColor': '#00F0FF', 'lineColor': '#00F0FF'}}}%%
@@ -1198,6 +1387,27 @@ Pocket Sparrow's **Live Shield** provides autonomous, zero-cloud notification th
 > - **15-Minute Pause**: User sleep timer with real-time countdown.
 
 #### 🔄 Real-Time Notification Interception Architecture
+
+**Layer 1: Inbound Push Interception (< 2ms)**
+- Incoming App Notification Streams (WhatsApp, Telegram, Signal, SMS)
+- NotificationExtractor (Title, Text, BigText, Embedded URLs)
+
+**Layer 2: Fast-Path Noise & Debounce Gate (< 0.1ms)**
+- System & Ongoing Flag Filter (`FLAG_ONGOING`, Media, Progress)
+- 5-second Sliding Window Content-Hash LRU Debounce (Package + Normalized Text)
+- User 15-Minute Pause Sleep Timer Check
+
+**Layer 3: Two-Tier On-Device Verdict Engine (< 40ms)**
+- SHA-256 Campaign Verdict Cache Hit (0.01ms Fast-Path)
+- Two-Tier Engine: Tier 1 Deterministic Homoglyphs + Tier 2 MobileBERT INT8
+
+**Layer 4: Enforcement & Forensic Quarantine (< 50ms Total SLA)**
+- Pass-Through to System Tray (SAFE Verdict)
+- Notification Cancellation (`cancelNotification`) & Quarantine (THREAT Verdict)
+- Interactive XAI Warning Notification ([Threat DNA] [Block Sender] [Allow Once])
+- Ephemeral Volatile RAM Only or Encrypted Room SQLCipher Vault Persistence
+
+<br/>
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#09090B', 'mainBkg': '#0D1117', 'primaryColor': '#00F0FF', 'lineColor': '#00F0FF'}}}%%
@@ -1720,6 +1930,24 @@ Monitors OS network interfaces (`/proc/net/dev`) before and after 1,000 payload 
 ---
 
 ## 🔒 11 · Privacy & Security Invariants
+
+**Layer 1: Hardware-Enforced Airgap**
+- Android `android.permission.INTERNET` explicitly omitted
+- Desktop loopback daemon binding exclusively to `127.0.0.1:41789`
+
+**Layer 2: Zero Outbound WAN Telemetry**
+- 0 analytics, tracking, or cloud telemetry SDKs
+- 100% in-memory neural weights, vocabularies, and regex rulebooks
+
+**Layer 3: Cryptographic Ledger & Storage Bus**
+- Local encrypted SQLCipher AES-256 forensic vault
+- Hardware Keystore / OS Secure Enclave key derivation
+
+**Layer 4: Transparent Explainable AI (XAI)**
+- Plain-English forensic attribution cards & Threat DNA heatmaps
+- Complete human-readable explainability for every security decision
+
+<br/>
 
 ```mermaid
 %%{init: {
