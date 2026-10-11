@@ -315,6 +315,101 @@ flowchart TB
 
 <br/>
 
+### 🌲 Branched Menu Architecture & Monorepo Map
+
+<p align="center">
+  <img src="assets/branched_project_structure.svg" alt="Pocket Sparrow Branched Menu Architecture" width="100%" />
+</p>
+
+<details open>
+<summary><b>🌲 Branched Navigation Hierarchy (Click to Expand / Collapse)</b></summary>
+
+<br/>
+
+```text
+│ Getting started
+├── 📥 Installation & Build Setup     (cargo / npm / gradle)
+├── 🚀 Quick start                     (3-Min Airplane Demo · ACTIVE)
+├── ⚙️ Configuration & Sockets         (/proc/net/dev Airgap)
+└── 🎨 Enterprise Theming              (Dark/Light Consistent)
+
+│ Shared Detection Core · core/
+├── 🦀 tier1/ · Entropy & Homoglyphs   (16 µs Latency SLA)
+├── 🧠 tier2/ · ONNX & WordPiece Vocab (0.22 ms P99 Latency)
+├── 🔍 xai/ · Explainable AI Threat DNA(Forensic attribution)
+└── ⚡ cpp/ & include/ · Zero-Copy FFI (libpocket_sparrow.so)
+
+│ Android Native Client · android/
+├── 📱 LiveShieldManager               (Notification Interceptor)
+├── ✉️ EmailPhishingAuditor            (Offline Brand & Webmail)
+├── 📷 QrScannerScreen                 (CameraX Quishing Radar)
+└── 🚫 Zero-Internet Manifest          (INTERNET permission omitted)
+
+│ Desktop HUD & Daemon · desktop/
+├── ⚛️ src/components/                 (React 18 + Tailwind HUD)
+├── 🦀 src-tauri/                      (127.0.0.1:41789 Loopback Daemon)
+├── 🔒 process_monitor.rs              (Linux /proc Reverse Shell Sentry)
+└── 🗄️ audit_vault.rs                  (SQLCipher AES-256 Ledger)
+
+│ Quantized ML Pipeline · ml/
+├── 📦 models/pocket_sparrow_int8.onnx (32.00 MB CPU Optimized)
+├── 📦 models/pocket_sparrow_int8.tflite (33.00 MB NNAPI/GPU)
+└── 🔤 models/vocab.txt                (1,139 WordPiece Tokens)
+
+│ Showcase & Releases · website/
+├── 🌐 website/index.html              (Multi-Platform Download Hub)
+├── 📥 Release Binaries                (APK, DEB, and EXE Installers)
+└── 🌲 BranchedMenu.tsx                (Hugeicons Navigation Tree)
+```
+
+</details>
+
+<br/>
+
+#### 💻 React Component Usage (`<BranchedMenu />`)
+
+The branched navigation tree above is also implemented as a reusable component powered by `@hugeicons/core-free-icons` and `@hugeicons/react` in [`desktop/src/components/BranchedMenu.tsx`](file:///home/gjgameryt-0890/PocketSparrow/desktop/src/components/BranchedMenu.tsx):
+
+```bash
+npm install @hugeicons/react @hugeicons/core-free-icons
+```
+
+```tsx
+import { Download04Icon, Rocket01Icon, Settings02Icon } from '@hugeicons/core-free-icons';
+import BranchedMenu from './BranchedMenu';
+
+<BranchedMenu
+  items={[
+    {
+      label: 'Getting started',
+      children: [
+        { value: 'install', label: 'Installation', icon: Download04Icon },
+        { value: 'quick', label: 'Quick start', icon: Rocket01Icon },
+        { value: 'config', label: 'Configuration', icon: Settings02Icon }
+      ]
+    },
+    { label: 'Components', children: [{ value: 'buttons', label: 'Buttons' }, { value: 'overlays', label: 'Overlays' }] }
+  ]}
+  defaultOpen={[0]}
+  defaultActive="quick"
+  onSelect={(value, item) => navigate(value)}
+  color="#f5f5f5"
+  accentColor="#f5f5f5"
+  lineColor="#3f3f46"
+  width={240}
+  rowHeight={36}
+  indent={40}
+  trunk={14}
+  radius={10}
+  lineWidth={1.5}
+  fontSize={14}
+  drawDuration={400}
+  foldDuration={300}
+/>
+```
+
+<br/>
+
 ### 📂 Interactive VS Code Monorepo Explorer
 
 <div align="center">

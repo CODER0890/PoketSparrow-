@@ -1,0 +1,369 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 820" width="100%" height="100%" style="background: transparent; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090D16" />
+      <stop offset="50%" stop-color="#0B1120" />
+      <stop offset="100%" stop-color="#080C14" />
+    </linearGradient>
+
+    <!-- Accent Glow for Active Curve -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <linearGradient id="activeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FFA3" />
+      <stop offset="100%" stop-color="#00F0FF" />
+    </linearGradient>
+
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="50%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#00FFA3" />
+    </linearGradient>
+  </defs>
+
+  <!-- Main Container Card -->
+  <rect x="2" y="2" width="876" height="816" rx="14" fill="url(#cardBg)" stroke="#1E293B" stroke-width="1.5" />
+
+  <!-- Top Window Bar -->
+  <g transform="translate(24, 22)">
+    <circle cx="6" cy="6" r="5" fill="#EF4444" />
+    <circle cx="22" cy="6" r="5" fill="#F59E0B" />
+    <circle cx="38" cy="6" r="5" fill="#10B981" />
+    <text x="60" y="10" fill="#94A3B8" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="600">POCKET SPARROW · MONOREPO BRANCHED ARCHITECTURE</text>
+    
+    <!-- Badges on top right -->
+    <g transform="translate(620, -4)">
+      <rect x="0" y="0" width="96" height="20" rx="4" fill="#00FFA3" fill-opacity="0.12" stroke="#00FFA3" stroke-width="1" />
+      <text x="48" y="14" fill="#00FFA3" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="700" text-anchor="middle">AIR-GAPPED 100%</text>
+      
+      <rect x="104" y="0" width="108" height="20" rx="4" fill="#00F0FF" fill-opacity="0.12" stroke="#00F0FF" stroke-width="1" />
+      <text x="158" y="14" fill="#00F0FF" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="700" text-anchor="middle">0.016ms P99 SLA</text>
+    </g>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="2" y1="56" x2="878" y2="56" stroke="#1E293B" stroke-width="1" />
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 1: GETTING STARTED & CORE ENGINE (X: 30)                      -->
+  <!-- ===================================================================== -->
+
+  <!-- GROUP 1: GETTING STARTED -->
+  <g transform="translate(40, 80)">
+    <!-- Header Indicator & Label -->
+    <rect x="0" y="0" width="3" height="18" rx="1.5" fill="#00F0FF" />
+    <text x="14" y="15" fill="#F8FAFC" font-size="15" font-weight="700" letter-spacing="-0.2px">Getting started</text>
+    <rect x="140" y="1" width="76" height="18" rx="4" fill="#334155" fill-opacity="0.5" />
+    <text x="178" y="13" fill="#94A3B8" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="600" text-anchor="middle">QUICK RUN</text>
+
+    <!-- Branch Tree SVG Lines -->
+    <!-- Trunk Line: X=16, from Y=28 to Y=126 (radius=10) -->
+    <line x1="16" y1="28" x2="16" y2="128" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Item 1: Installation (Y=44) -->
+    <path d="M 16 34 Q 16 44 26 44 L 46 44" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <!-- Download Icon -->
+    <g transform="translate(56, 36)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2v9M4 8l4 4 4-4M2 14h12" />
+    </g>
+    <text x="80" y="48" fill="#94A3B8" font-size="13" font-weight="400">Installation &amp; Build Setup</text>
+    <text x="260" y="48" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">cargo / npm / gradle</text>
+
+    <!-- Item 2: Quick Start (Y=78) - ACTIVE ITEM (HIGHLIGHTED) -->
+    <path d="M 16 68 Q 16 78 26 78 L 46 78" fill="none" stroke="url(#activeGrad)" stroke-width="2.2" stroke-linecap="round" filter="url(#glowCyan)" />
+    <!-- Rocket Icon -->
+    <g transform="translate(56, 70)" stroke="#00FFA3" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12l-2 2 2 2 2-2M12 4l2-2 2 2-2 2" />
+      <path d="M14 2c-3.5 0-6.5 2.5-7.5 6-.5 1.5-.5 3 0 4.5l5 5c1.5.5 3 .5 4.5 0 3.5-1 6-4 6-7.5V2h-8z" />
+    </g>
+    <text x="80" y="82" fill="#FFFFFF" font-size="13" font-weight="700">3-Min Airplane Mode Demo</text>
+    <rect x="254" y="69" width="108" height="18" rx="4" fill="#00FFA3" fill-opacity="0.15" stroke="#00FFA3" stroke-width="1" />
+    <text x="308" y="81" fill="#00FFA3" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="700" text-anchor="middle">ACTIVE · ZERO WAN</text>
+
+    <!-- Item 3: Configuration (Y=112) -->
+    <path d="M 16 102 Q 16 112 26 112 L 46 112" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <!-- Gear Icon -->
+    <g transform="translate(56, 104)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="8" r="3" />
+      <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.5 1.5M11.5 11.5L13 13M3 13l1.5-1.5M11.5 4.5L13 3" />
+    </g>
+    <text x="80" y="116" fill="#94A3B8" font-size="13" font-weight="400">Airgap Socket Verification</text>
+    <text x="260" y="116" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">/proc/net/dev</text>
+
+    <!-- Item 4: Theming & Visuals (Y=146) -->
+    <path d="M 16 136 Q 16 146 26 146 L 46 146" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <!-- Palette Icon -->
+    <g transform="translate(56, 138)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="5" cy="5" r="1.5" fill="#94A3B8" />
+      <circle cx="11" cy="5" r="1.5" fill="#94A3B8" />
+      <circle cx="12" cy="10" r="1.5" fill="#94A3B8" />
+      <path d="M8 1C4.1 1 1 4.1 1 8c0 3 1.5 5 4 5h1c.8 0 1.5.7 1.5 1.5 0 .5-.2 1-.5 1.4C6.5 16.5 7.2 17 8 17c4.4 0 8-3.6 8-8s-3.6-8-8-8z" />
+    </g>
+    <text x="80" y="150" fill="#94A3B8" font-size="13" font-weight="400">Enterprise Dark/Light Tokens</text>
+    <text x="270" y="150" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">100% Consistent</text>
+  </g>
+
+  <!-- GROUP 2: SHARED DETECTION CORE (core/) -->
+  <g transform="translate(40, 275)">
+    <!-- Header -->
+    <rect x="0" y="0" width="3" height="18" rx="1.5" fill="#00FFA3" />
+    <text x="14" y="15" fill="#F8FAFC" font-size="15" font-weight="700" letter-spacing="-0.2px">Shared Detection Core · core/</text>
+    <rect x="250" y="1" width="100" height="18" rx="4" fill="#00FFA3" fill-opacity="0.12" />
+    <text x="300" y="13" fill="#00FFA3" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="600" text-anchor="middle">RUST 2021 + C++17</text>
+
+    <!-- Trunk Line: X=16, from Y=28 to Y=126 -->
+    <line x1="16" y1="28" x2="16" y2="128" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Branch 1: Tier 1 Heuristics (Y=44) -->
+    <path d="M 16 34 Q 16 44 26 44 L 46 44" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 36)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 13l4-8 4 6 5-10" />
+    </g>
+    <text x="80" y="48" fill="#94A3B8" font-size="13" font-weight="400">tier1/ · Entropy &amp; Homoglyphs</text>
+    <text x="270" y="48" fill="#00FFA3" font-size="11" font-family="'JetBrains Mono', monospace">16 µs Latency</text>
+
+    <!-- Branch 2: Tier 2 Neural (Y=78) -->
+    <path d="M 16 68 Q 16 78 26 78 L 46 78" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 70)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="8" r="6" />
+      <path d="M8 2v12M2 8h12" />
+    </g>
+    <text x="80" y="82" fill="#94A3B8" font-size="13" font-weight="400">tier2/ · ONNX &amp; WordPiece Vocab</text>
+    <text x="290" y="82" fill="#00F0FF" font-size="11" font-family="'JetBrains Mono', monospace">0.22 ms P99</text>
+
+    <!-- Branch 3: XAI (Y=112) -->
+    <path d="M 16 102 Q 16 112 26 112 L 46 112" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 104)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 4h12v9H2zM5 8h6M5 10h4" />
+    </g>
+    <text x="80" y="116" fill="#94A3B8" font-size="13" font-weight="400">xai/ · Explainable AI Threat DNA</text>
+    <text x="290" y="116" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">Forensic tokens</text>
+
+    <!-- Branch 4: C-ABI Bridge (Y=146) -->
+    <path d="M 16 136 Q 16 146 26 146 L 46 146" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 138)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 5h10M3 11h10M6 2v12M10 2v12" />
+    </g>
+    <text x="80" y="150" fill="#94A3B8" font-size="13" font-weight="400">cpp/ &amp; include/ · Zero-Copy C-ABI</text>
+    <text x="295" y="150" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">libpocket_sparrow.so</text>
+  </g>
+
+  <!-- GROUP 3: QUANTIZED ML PIPELINE (ml/) -->
+  <g transform="translate(40, 470)">
+    <!-- Header -->
+    <rect x="0" y="0" width="3" height="18" rx="1.5" fill="#FF2A85" />
+    <text x="14" y="15" fill="#F8FAFC" font-size="15" font-weight="700" letter-spacing="-0.2px">Quantized ML Pipeline · ml/</text>
+    <rect x="236" y="1" width="112" height="18" rx="4" fill="#FF2A85" fill-opacity="0.12" />
+    <text x="292" y="13" fill="#FF2A85" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="600" text-anchor="middle">MOBILEBERT INT8</text>
+
+    <!-- Trunk Line: X=16, from Y=28 to Y=94 -->
+    <line x1="16" y1="28" x2="16" y2="94" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Branch 1: ONNX INT8 (Y=44) -->
+    <path d="M 16 34 Q 16 44 26 44 L 46 44" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 36)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="12" height="12" rx="2" />
+      <path d="M6 8h4" />
+    </g>
+    <text x="80" y="48" fill="#94A3B8" font-size="13" font-weight="400">models/pocket_sparrow_int8.onnx</text>
+    <text x="315" y="48" fill="#00F0FF" font-size="11" font-family="'JetBrains Mono', monospace">32.00 MB</text>
+
+    <!-- Branch 2: TFLite INT8 (Y=78) -->
+    <path d="M 16 68 Q 16 78 26 78 L 46 78" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 70)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="12" height="12" rx="2" />
+      <path d="M8 5v6" />
+    </g>
+    <text x="80" y="82" fill="#94A3B8" font-size="13" font-weight="400">models/pocket_sparrow_int8.tflite</text>
+    <text x="315" y="82" fill="#A855F7" font-size="11" font-family="'JetBrains Mono', monospace">33.00 MB</text>
+
+    <!-- Branch 3: Vocab (Y=112) -->
+    <path d="M 16 102 Q 16 112 26 112 L 46 112" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 104)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 4h10M3 8h7M3 12h5" />
+    </g>
+    <text x="80" y="116" fill="#94A3B8" font-size="13" font-weight="400">models/vocab.txt · WordPiece Vocab</text>
+    <text x="315" y="116" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">1,139 Tokens</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 2: ANDROID & DESKTOP & WEBSITE (X: 470)                        -->
+  <!-- ===================================================================== -->
+
+  <!-- GROUP 4: ANDROID NATIVE CLIENT (android/) -->
+  <g transform="translate(470, 80)">
+    <!-- Header -->
+    <rect x="0" y="0" width="3" height="18" rx="1.5" fill="#A855F7" />
+    <text x="14" y="15" fill="#F8FAFC" font-size="15" font-weight="700" letter-spacing="-0.2px">Android Native Client · android/</text>
+    <rect x="250" y="1" width="106" height="18" rx="4" fill="#A855F7" fill-opacity="0.12" />
+    <text x="303" y="13" fill="#A855F7" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="600" text-anchor="middle">JETPACK COMPOSE</text>
+
+    <!-- Trunk Line: X=16, from Y=28 to Y=126 -->
+    <line x1="16" y1="28" x2="16" y2="128" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Branch 1: Live Shield (Y=44) -->
+    <path d="M 16 34 Q 16 44 26 44 L 46 44" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 36)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2a5 5 0 00-5 5v3l-1 2h12l-1-2V7a5 5 0 00-5-5zM6 14a2 2 0 004 0" />
+    </g>
+    <text x="80" y="48" fill="#94A3B8" font-size="13" font-weight="400">LiveShieldManager · Notification Guard</text>
+    <text x="320" y="48" fill="#00FFA3" font-size="11" font-family="'JetBrains Mono', monospace">WhatsApp / SMS</text>
+
+    <!-- Branch 2: Email Shield (Y=78) -->
+    <path d="M 16 68 Q 16 78 26 78 L 46 78" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 70)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="12" height="10" rx="1.5" />
+      <path d="M2 4l6 4 6-4" />
+    </g>
+    <text x="80" y="82" fill="#94A3B8" font-size="13" font-weight="400">EmailPhishingAuditor · Heuristic Audit</text>
+    <text x="320" y="82" fill="#00FFA3" font-size="11" font-family="'JetBrains Mono', monospace">&lt; 20ms SLA</text>
+
+    <!-- Branch 3: CameraX QR (Y=112) -->
+    <path d="M 16 102 Q 16 112 26 112 L 46 112" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 104)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="4" height="4" />
+      <rect x="10" y="2" width="4" height="4" />
+      <rect x="2" y="10" width="4" height="4" />
+      <path d="M10 10h4v4h-4z" />
+    </g>
+    <text x="80" y="116" fill="#94A3B8" font-size="13" font-weight="400">QrScannerScreen · CameraX Quishing</text>
+    <text x="320" y="116" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">Laser Reticle</text>
+
+    <!-- Branch 4: Airgap Manifest (Y=146) -->
+    <path d="M 16 136 Q 16 146 26 146 L 46 146" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 138)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2l6 3v5c0 4-3 7-6 8-3-1-6-4-6-8V5l6-3z" />
+    </g>
+    <text x="80" y="150" fill="#94A3B8" font-size="13" font-weight="400">Zero-Internet Manifest (0 WAN Bytes)</text>
+    <text x="320" y="150" fill="#EF4444" font-size="11" font-family="'JetBrains Mono', monospace">INTERNET omitted</text>
+  </g>
+
+  <!-- GROUP 5: DESKTOP HUD & DAEMON (desktop/) -->
+  <g transform="translate(470, 275)">
+    <!-- Header -->
+    <rect x="0" y="0" width="3" height="18" rx="1.5" fill="#24C8DB" />
+    <text x="14" y="15" fill="#F8FAFC" font-size="15" font-weight="700" letter-spacing="-0.2px">Desktop HUD &amp; Daemon · desktop/</text>
+    <rect x="250" y="1" width="100" height="18" rx="4" fill="#24C8DB" fill-opacity="0.12" />
+    <text x="300" y="13" fill="#24C8DB" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="600" text-anchor="middle">TAURI 2.0 + REACT</text>
+
+    <!-- Trunk Line: X=16, from Y=28 to Y=126 -->
+    <line x1="16" y1="28" x2="16" y2="128" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Branch 1: React HUD (Y=44) -->
+    <path d="M 16 34 Q 16 44 26 44 L 46 44" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 36)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="12" height="9" rx="1" />
+      <path d="M5 14h6M8 12v2" />
+    </g>
+    <text x="80" y="48" fill="#94A3B8" font-size="13" font-weight="400">src/components/ · Enterprise Cyber HUD</text>
+    <text x="320" y="48" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">Vite / Tailwind</text>
+
+    <!-- Branch 2: Tauri Loopback (Y=78) -->
+    <path d="M 16 68 Q 16 78 26 78 L 46 78" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 70)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 8a6 6 0 0110.2-4.2L14 5M14 8a6 6 0 01-10.2 4.2L2 11" />
+    </g>
+    <text x="80" y="82" fill="#94A3B8" font-size="13" font-weight="400">src-tauri/ · Local Loopback Bridge</text>
+    <text x="315" y="82" fill="#00FFA3" font-size="11" font-family="'JetBrains Mono', monospace">127.0.0.1:41789</text>
+
+    <!-- Branch 3: Process Sentry (Y=112) -->
+    <path d="M 16 102 Q 16 112 26 112 L 46 112" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 104)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="8" r="5" />
+      <path d="M8 5v6M5 8h6" />
+    </g>
+    <text x="80" y="116" fill="#94A3B8" font-size="13" font-weight="400">process_monitor.rs · Linux /proc Sentry</text>
+    <text x="330" y="116" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">Reverse shell</text>
+
+    <!-- Branch 4: SQLite Vault (Y=146) -->
+    <path d="M 16 136 Q 16 146 26 146 L 46 146" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 138)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="8" cy="4" rx="6" ry="2" />
+      <path d="M2 4v8c0 1.1 2.7 2 6 2s6-.9 6-2V4" />
+      <path d="M2 8c0 1.1 2.7 2 6 2s6-.9 6-2" />
+    </g>
+    <text x="80" y="150" fill="#94A3B8" font-size="13" font-weight="400">audit_vault.rs · SQLCipher AES-256</text>
+    <text x="330" y="150" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">Zero-Retention</text>
+  </g>
+
+  <!-- GROUP 6: LANDING PAGE & RELEASES (website/) -->
+  <g transform="translate(470, 470)">
+    <!-- Header -->
+    <rect x="0" y="0" width="3" height="18" rx="1.5" fill="#F59E0B" />
+    <text x="14" y="15" fill="#F8FAFC" font-size="15" font-weight="700" letter-spacing="-0.2px">Showcase &amp; Releases · website/</text>
+    <rect x="250" y="1" width="102" height="18" rx="4" fill="#F59E0B" fill-opacity="0.12" />
+    <text x="301" y="13" fill="#F59E0B" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="600" text-anchor="middle">STATIC HUB</text>
+
+    <!-- Trunk Line: X=16, from Y=28 to Y=94 -->
+    <line x1="16" y1="28" x2="16" y2="94" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- Branch 1: Landing Page (Y=44) -->
+    <path d="M 16 34 Q 16 44 26 44 L 46 44" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 36)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="8" r="6" />
+      <path d="M2 8h12M8 2a10 10 0 010 12" />
+    </g>
+    <text x="80" y="48" fill="#94A3B8" font-size="13" font-weight="400">website/index.html · Standalone Hub</text>
+    <text x="320" y="48" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace">GitHub Pages</text>
+
+    <!-- Branch 2: Production Downloads (Y=78) -->
+    <path d="M 16 68 Q 16 78 26 78 L 46 78" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 70)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2v9M4 8l4 4 4-4M2 14h12" />
+    </g>
+    <text x="80" y="82" fill="#94A3B8" font-size="13" font-weight="400">Multi-Platform Release Binaries</text>
+    <text x="300" y="82" fill="#00FFA3" font-size="11" font-family="'JetBrains Mono', monospace">APK / DEB / EXE</text>
+
+    <!-- Branch 3: BranchedMenu Component (Y=112) -->
+    <path d="M 16 102 Q 16 112 26 112 L 46 112" fill="none" stroke="#3F3F46" stroke-width="1.5" stroke-linecap="round" />
+    <g transform="translate(56, 104)" stroke="#94A3B8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 5h4M3 8h6M3 11h4M10 2l3 3-3 3" />
+    </g>
+    <text x="80" y="116" fill="#94A3B8" font-size="13" font-weight="400">BranchedMenu.tsx · Hugeicons Tree</text>
+    <text x="310" y="116" fill="#00F0FF" font-size="11" font-family="'JetBrains Mono', monospace">Interactive UI</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER STATS TICKER (Y: 660)                                         -->
+  <!-- ===================================================================== -->
+  <g transform="translate(40, 675)">
+    <rect x="0" y="0" width="800" height="96" rx="8" fill="#0E1526" stroke="#1E293B" stroke-width="1" />
+    
+    <g transform="translate(30, 24)">
+      <text x="0" y="14" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="600">INFERENCE LATENCY</text>
+      <text x="0" y="44" fill="#00FFA3" font-size="22" font-family="'JetBrains Mono', monospace" font-weight="800">0.016 ms</text>
+      <text x="0" y="58" fill="#475569" font-size="10">SLA: &lt; 50 ms</text>
+    </g>
+
+    <line x1="220" y1="16" x2="220" y2="80" stroke="#1E293B" stroke-width="1" />
+
+    <g transform="translate(250, 24)">
+      <text x="0" y="14" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="600">CLOUD TELEMETRY</text>
+      <text x="0" y="44" fill="#00F0FF" font-size="22" font-family="'JetBrains Mono', monospace" font-weight="800">0 Bytes</text>
+      <text x="0" y="58" fill="#475569" font-size="10">Strict Airgap</text>
+    </g>
+
+    <line x1="420" y1="16" x2="420" y2="80" stroke="#1E293B" stroke-width="1" />
+
+    <g transform="translate(450, 24)">
+      <text x="0" y="14" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="600">PEAK MEMORY RSS</text>
+      <text x="0" y="44" fill="#A855F7" font-size="22" font-family="'JetBrains Mono', monospace" font-weight="800">14.88 MB</text>
+      <text x="0" y="58" fill="#475569" font-size="10">SLA: &lt; 250 MB</text>
+    </g>
+
+    <line x1="620" y1="16" x2="620" y2="80" stroke="#1E293B" stroke-width="1" />
+
+    <g transform="translate(650, 24)">
+      <text x="0" y="14" fill="#64748B" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="600">AIRPLANE MODE</text>
+      <text x="0" y="44" fill="#F59E0B" font-size="22" font-family="'JetBrains Mono', monospace" font-weight="800">100%</text>
+      <text x="0" y="58" fill="#475569" font-size="10">Local NN &amp; Rules</text>
+    </g>
+  </g>
+</svg>
